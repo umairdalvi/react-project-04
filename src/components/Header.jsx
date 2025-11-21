@@ -1,16 +1,16 @@
 const Header = () => {
     return (
-        <div className="flex justify-between items-center py-4 px-3 border-b border-b-slate-300">
+        <div className="flex justify-between items-center py-4 px-4 border-b border-b-slate-300">
             <div className="">
                 <div className="flex gap-5">
-                    <p className="cursor-pointer">+1(973)435-3638</p>
+                    <p className="cursor-pointer">+1 (973) 435-3638</p>
                     <p className="cursor-pointer">info@furniture.com</p>
                 </div>
             </div>
-            <div className="">
+            <div className="-translate-x-14">
                 <div>
                     <a href="#">
-                        <img className="w-32" src="./images/logo.avif" alt="logo" />
+                        <img className="w-24" src="./images/logo.avif" alt="logo" />
                     </a>
                 </div>
             </div>
