@@ -10,7 +10,11 @@ const Header = () => {
             <div className="-translate-x-14">
                 <div>
                     <a href="#">
-                        <img className="w-24" src="./images/logo.avif" alt="logo" />
+                        <img
+                            className="w-24"
+                            src="./images/logo.avif"
+                            alt="logo"
+                        />
                     </a>
                 </div>
             </div>
@@ -23,7 +27,7 @@ const Header = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;
