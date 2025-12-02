@@ -1,6 +1,6 @@
 const Header = () => {
     return (
-        <div className="flex justify-between items-center p-2 lg:p-4 lg:border-b border-b-slate-300">
+        <div className="flex justify-between items-center p-2 lg:p-3 lg:border-b border-b-slate-300">
             <div>
                 <div className="gap-5 hidden lg:flex">
                     <p className="cursor-pointer">+1 (973) 435-3638</p>
