@@ -1,15 +1,15 @@
 const ProductDetails = () => {
     return (
-        <div className="p-16 flex gap-5">
-            <div className="w-6/12">
+        <div className="p-2 md:p-8 lg:p-16 flex flex-col lg:flex-row gap-5">
+            <div className="w-full lg:w-6/12">
                 <div className="sticky top-5">
                     <img src="./images/sofa.webp" alt="sofa" />
                 </div>
             </div>
-            <div className="w-6/12">
+            <div className="w-full lg:w-6/12">
                 <div>
                     <p className="text-gray-700 text-sm mb-1">Wayfair</p>
-                    <h3 className="text-3xl font-semibold mb-1">
+                    <h3 className="text-xl sm:text-3xl font-semibold mb-1">
                         Petrie Midcentury Sofa
                     </h3>
                     <div className="flex gap-5 text-sm mb-3">
@@ -23,16 +23,18 @@ const ProductDetails = () => {
                         <p>1 review</p>
                         <p>🔥15 sold in last 24 hrs</p>
                     </div>
-                    <p className="text-2xl font-medium mb-3">$420.00</p>
-                    <p className="text-md text-gray-600">
+                    <p className="text-xl sm:text-2xl font-medium mb-3">
+                        $420.00
+                    </p>
+                    <p className="text-sm sm:text-base text-gray-600">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Voluptas ipsum consectetur omnis dolores magnam labore.
                     </p>
                 </div>
                 <div className="p-3 flex flex-col gap-4 border rounded-md mt-3">
                     <div className="border-b border-dashed pb-3 flex items-center gap-4">
-                        <i className="ri-truck-line text-2xl"></i>
-                        <p>
+                        <i className="ri-truck-line text-xl sm:text-2xl"></i>
+                        <p className="text-sm sm:text-base">
                             Estimate delivery times:
                             <span className="font-semibold">
                                 {" "}
@@ -41,16 +43,16 @@ const ProductDetails = () => {
                         </p>
                     </div>
                     <div className="border-b border-dashed pb-3 flex items-center gap-4">
-                        <i className="ri-discount-percent-line text-2xl"></i>
-                        <p>
+                        <i className="ri-discount-percent-line text-xl sm:text-2xl"></i>
+                        <p className="text-sm sm:text-base">
                             Use code "
                             <span className="font-semibold">WELCOME15</span>"
                             for discount 15% on your first order.
                         </p>
                     </div>
                     <div className=" flex items-center gap-4">
-                        <i className="ri-box-3-line text-2xl"></i>
-                        <p>
+                        <i className="ri-box-3-line text-xl sm:text-2xl"></i>
+                        <p className="text-sm sm:text-base">
                             Free shipping & returns:
                             <span className="font-semibold">
                                 {" "}
@@ -70,7 +72,7 @@ const ProductDetails = () => {
                     </p>
                 </div>
                 <div className="border-t mt-5 py-4 flex justify-between items-center">
-                    <div className="rounded-full border border-gray-300 bg-gray-200 px-2 py-3 w-3/12 flex items-center justify-between gap-5">
+                    <div className="rounded-full border border-gray-300 bg-gray-200 px-2 py-3 w-4/12 sm:w-3/12 flex items-center justify-between gap-5">
                         <p className="cursor-pointer">
                             <i className="ri-subtract-fill"></i>
                         </p>
@@ -79,8 +81,8 @@ const ProductDetails = () => {
                             <i className="ri-add-fill"></i>
                         </p>
                     </div>
-                    <div className="w-6/12">
-                        <button className="rounded-full bg-black text-white font-medium py-3 w-full inline-block">
+                    <div className="w-4/12 sm:w-7/12 lg:w-6/12">
+                        <button className="rounded-full w-full bg-black text-white font-medium py-3 inline-block">
                             Add to Cart
                         </button>
                     </div>
@@ -98,8 +100,8 @@ const ProductDetails = () => {
                         Buy it Now
                     </button>
                 </div>
-                <div className="mt-1">
-                    <p className="flex items-center">
+                <div className="mt-2">
+                    <p className="flex items-center text-sm ms:text-base">
                         <span className="text-green-600 text-2xl me-1">
                             <i className="ri-check-fill"></i>
                         </span>
@@ -112,7 +114,7 @@ const ProductDetails = () => {
                         </span>
                     </p>
                 </div>
-                <div className="mt-5 text-gray-700">
+                <div className="mt-5 text-gray-700 text-sm sm:text-base">
                     <p className="mb-2">
                         <span className="inline-block w-24">SKU:</span> FUR_11
                     </p>

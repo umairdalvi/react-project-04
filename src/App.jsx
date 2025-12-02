@@ -7,7 +7,7 @@ import ReviewSection from "./components/ReviewSection";
 
 const App = () => {
     return (
-        <div className="container p-5 mx-auto">
+        <div className="xl:container px-2 xl:px-5 mx-auto">
             <Header />
             <Navbar />
             <ProductDetails />

@@ -1,7 +1,32 @@
 import { useRef, useState } from "react";
+import ReviewDisplay from "./ReviewDisplay";
 
 const ReviewSection = () => {
     const [errors, setErrors] = useState({});
+    const [reviews, setReviews] = useState([
+        {
+            key: "default-00",
+            name: "John Doe",
+            profileImgUrl: "./images/people/person-01.jpg",
+            email: null,
+            rating: 4,
+            reviewTitle: "Comfort Meets Style: The Perfect Sofa!",
+            review: "The Wayfair Midcentury Sofa is a striking addition to my living room. Its elegant design and rich color enhance the space, while the plush cushions provide exceptional comfort. Easy to assemble and visibly high-quality, this sofa is a top choice for anyone seeking style and comfort.",
+            newsletterSubscribed: null,
+            tnc: null,
+        },
+        {
+            key: "default-01",
+            name: "Jane Doe",
+            profileImgUrl: "./images/people/person-02.jpg",
+            email: null,
+            rating: 5,
+            reviewTitle: " Ideal for Family Gatherings",
+            review: "We love our Wayfair Midcentury Sofa! It comfortably fits the whole family, making gatherings a breeze. The soft, durable fabric is easy to clean, and the modular design lets us rearrange as needed. This sofa combines style and practicality, making it a fantastic purchase for any home.",
+            newsletterSubscribed: null,
+            tnc: null,
+        },
+    ]);
 
     const formRef = useRef(null);
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -13,6 +38,7 @@ const ReviewSection = () => {
 
     const [formData, setFormData] = useState({
         name: "",
+        profileImgUrl: "",
         email: "",
         rating: 5,
         reviewTitle: "",
@@ -24,9 +50,11 @@ const ReviewSection = () => {
     const handleSubmit = e => {
         e.preventDefault();
         if (handleErrors()) {
-            console.log(formData);
+            setReviews(prev => [...prev, { key: Date.now(), ...formData }]);
+
             setFormData({
                 name: "",
+                profileImgUrl: "",
                 email: "",
                 rating: 5,
                 reviewTitle: "",
@@ -55,6 +83,10 @@ const ReviewSection = () => {
         if (formData.review.trim() === "")
             errors.reviewError = "Please enter a review";
 
+        if (formData.profileImgUrl.trim() === "")
+            errors.profileImgUrlError =
+                "Please provide a link to your profile picture";
+
         if (!formData.tnc)
             errors.tncError = "Please check this box to continue";
 
@@ -77,15 +109,15 @@ const ReviewSection = () => {
 
     return (
         <div className="flex flex-col items-center">
-            <div className="w-6/12">
+            <div className="w-full md:w-9/12 lg:w-8/12 p-3">
                 <div>
-                    <div className="mb-8 text-center">
-                        <h3 className="text-2xl font-semibold">
+                    <div className="my-8 text-center">
+                        <h3 className="text-3xl font-semibold">
                             Write a review
                         </h3>
                     </div>
                     <form
-                        className="flex flex-col gap-5"
+                        className="flex flex-col gap-5 w-full"
                         noValidate
                         ref={formRef}
                         onSubmit={handleSubmit}
@@ -105,6 +137,25 @@ const ReviewSection = () => {
                             />
                             <p className="mt-0 ms-2 text-sm text-red-600 dark:text-red-500">
                                 {errors.nameError || ""}
+                            </p>
+                        </div>
+                        <div className="flex flex-col gap-1">
+                            <label htmlFor="review">Profile Image URL:</label>
+                            <input
+                                type="url"
+                                name="profileImgUrl"
+                                id="profileImgUrl"
+                                className={
+                                    errors.profileImgUrlError
+                                        ? errorStyle
+                                        : normalStyle
+                                }
+                                placeholder="Enter a link to your profile picture"
+                                onChange={handleChange}
+                                value={formData.profileImgUrl}
+                            />
+                            <p className="mt-0 ms-2 text-sm text-red-600 dark:text-red-500">
+                                {errors.profileImgUrlError || ""}
                             </p>
                         </div>
                         <div className="flex flex-col gap-1">
@@ -230,9 +281,8 @@ const ReviewSection = () => {
                                         id="tnc"
                                         name="tnc"
                                         type="checkbox"
-                                        value=""
                                         className="w-4 h-4 text-gray-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-gray-500 dark:focus:ring-gray-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                                        defaultChecked={formData.tnc}
+                                        checked={formData.tnc}
                                         onChange={handleChange}
                                     ></input>
                                     <label htmlFor="review">
@@ -251,6 +301,7 @@ const ReviewSection = () => {
                     </form>
                 </div>
             </div>
+            <ReviewDisplay reviews={reviews} setReviews={setReviews} />
         </div>
     );
 };
